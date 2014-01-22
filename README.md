@@ -1,14 +1,14 @@
-deep-playground
+getting-started-with-deep
 ====
 
-Simple nodejs sandbox oriented for creating Single Page Application based on deepjs tools.
+A simple example with a complete step by step tutorial.
 
 
 Install
 ===
 
 ```shell
-git clone https://github.com/deepjs/deep-playground.git
-cd deep-playground
+git clone https://github.com/deepjs/getting-started-with-deep.git
+cd getting-started-with-deep
 npm install
 ```
