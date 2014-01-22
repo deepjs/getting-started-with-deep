@@ -1,0 +1,31 @@
+<div class="text-center">
+	<h1>DEEP-UI</h1>
+	<h3>Partials :</h3>
+	<div partials="swig::/templates/partial1.html" />
+
+	<h3>Property bind on simple div</h3>
+	<div property-bind="myobjects::e1/title">xxxxx</div>
+
+	<h3>input field binded</h3>
+	<div>
+		<input input-bind="myobjects::e1/title"></input>
+	</div>
+
+	<h3>automatic form creation based on schema</h3>
+	<div object-bind="myobjects::e2">
+	</div>
+
+	<div deep-widgets="list" engine="swig" bind="myobjects(1,10)::?">
+		{% raw %}
+		<div list-header>{{ title }}</div>
+		<ul>
+			<li list-row>
+				<span>{{ title }}</span>
+			</li>
+		</ul>
+		<div list-pager>xxx</div>
+		{% endraw %}
+	</div>
+
+</div>
+

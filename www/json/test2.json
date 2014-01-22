@@ -1,0 +1,8 @@
+{ properties:
+    		{ title:
+    			{ type:"string", minLength:4,required:true}
+    	},
+    	{name:
+    		{type:"string", minLength:4,required:true}
+    	}
+    }
