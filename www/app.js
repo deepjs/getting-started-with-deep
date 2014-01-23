@@ -11,11 +11,11 @@ require.config({
 define([
 	"require",
 	"deepjs/deep",
+	"deepjs/lib/view",
 	"deep-swig/index",
 	"deep-jquery/index",
 	"deep-jquery/clients/json",
 	"deepjs/lib/unit",
-	"deepjs/lib/view",
 	"deep-data-bind/json-binder",
 	"deep-widgets/index",
 	"deep-routes/parser"

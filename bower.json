@@ -1,0 +1,25 @@
+{
+  "name": "getting-started-with-deep",
+  "main": "index.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/deepjs/getting-started-with-deep",
+  "authors": [
+    "Philippe Delabye <phil@chemicalrules.net>"
+  ],
+  "description": "A simple example with a complete step by step tutorial",
+  "license": "GNU GPL",
+  "private": true,
+  "dependencies": {
+    "bootstrap": ">= v3.0.3",
+    "deepjs": ">= 0.10.3",
+    "deep-swig":">= 0.3.1",
+    "deep-routes":">= 0.1.1",
+    "deep-data-bind": ">= 0.3.3",
+    "deep-jquery": ">= 0.1.0",
+    "deep-widgets": ">= 0.1.0",
+    "jquery": ">= 2.0.3",
+    "jStorage": ">= v0.4.8",
+    "requirejs": ">= 2.1.10",
+    "swig": ">= v1.3.0"
+  }
+}
