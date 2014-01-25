@@ -49,11 +49,7 @@ define([
 		where: "dom.appendTo::#content"
 	});
 
-	view.refresh().log();
-
-
-
-
+	view.refresh();
 	console.log("app started");
 
 });

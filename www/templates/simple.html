@@ -15,7 +15,7 @@
 	<div object-bind="myobjects::e2">
 	</div>
 
-	<div deep-widgets="list" engine="swig" bind="myobjects(1,10)::?">
+	<div deep-widgets="list" engine="swig" bind="myobjects(0,10)::?">
 		{% raw %}
 		<div list-header>{{ title }}</div>
 		<ul>
@@ -23,7 +23,7 @@
 				<span>{{ title }}</span>
 			</li>
 		</ul>
-		<div list-pager>xxx</div>
+		<div list-pager></div>
 		{% endraw %}
 	</div>
 

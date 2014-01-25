@@ -27,7 +27,7 @@ var htmls = {
 	// here we serve an index on /. it's produce from pointed swig template with provided context
 	// (each entry could be an OCManager)
 	"/":{
-		page:"swig::./www/index.swig",
+		page:"swig::./www/index.html",
 		context:{
 			mainPath:"/main",
 			datas:"json::./www/json/test.json"
@@ -37,7 +37,7 @@ var htmls = {
 
 // map for static files served by server
 var statics = {
-	"/":[ { path:__dirname + '/www', options:{ maxAge: 86400000, redirect:false } } ],
+	"/":[ { path:__dirname + '/www', options:{ maxAge: 86400000, redirect:false } } ]
 	// "/libs/deepjs":[ { path:__dirname + '/node_modules/deepjs', options : { maxAge: 86400000, redirect:false } } ],
 	// "/libs/deep-swig":[ { path:__dirname + '/node_modules/deep-swig', options : { maxAge: 86400000, redirect:false } } ],
 	// "/libs/deep-routes":[ { path:__dirname + '/node_modules/deep-routes', options : { maxAge: 86400000, redirect:false } } ],
