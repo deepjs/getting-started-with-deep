@@ -36,7 +36,7 @@ You are now ready to build the deepjs example application. In this step, you wil
 
 ## Running a deepjs application
 
-Launch the nodejs server
+### Launch the nodejs server
 
 run the following command in a terminal window:
 ```shell
@@ -47,17 +47,19 @@ This command launch the server and output :
 server is listening on port :  3000
 node via stdin> 
 ```
-The first line means your webserver is started is is listening to port 3000.
+The first line means your webserver is started and is listening to port 3000.
 The second is a repl access to node, so you can type direct command if needed (more on this later).
 You will see all the server logs in this terminal window.
 
-Open a browser window for the app and navigate to http://localhost:8000/app/index.html
+
+
+### Open a browser window for the app and navigate to http://localhost:3000/
 
 You can now see a page in your browser. It's not very exciting, but that's OK.
 
-The HTML page that displays "Nothing here yet!" was constructed with the HTML code shown below. I'm sur I don't have to explain it. Just mention that we load a css, jquery, swig (that is our templating engine but you will see you could use yours), Jstorage (not required but necessary for this tutorial later as we would use it to access the local storage).
+The HTML page that displays "Nothing here yet!" was constructed with the HTML code shown below. I'm sure I don't have to explain it. Just mention that we load a css, jquery, swig (that is our templating engine but you will see you could use yours), Jstorage (not required but necessary for this tutorial later as we would use it to access the local storage).
 
-app/index.html:
+www/index.html:
 ```html
 <!DOCTYPE html>
 <html>
