@@ -72,12 +72,12 @@ app/index.html:
   	<script src="./libs/jquery/jquery.min.js"></script>
   	<script src="./libs/swig.min.js"></script>
   	<script src="./libs/jStorage/jstorage.min.js"></script>
-  	<script data-main="/app.js" src="./libs/requirejs/require.js"></script>
+  	<script data-main="./app" src="./libs/requirejs/require.js"></script>
 </body>
 </html>
 ```
 
-This line is loading require.js and launch our app.js script located in /www/app.js (remember we serve /www under / in the statics map)
+This line is loading require.js and launch our app.js script located in /www/app (remember we serve /www under / in the statics map)
 ```html
 <script data-main="/app.js" src="./libs/requirejs/require.js"></script>
 ```
