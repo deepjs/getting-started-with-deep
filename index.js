@@ -22,11 +22,7 @@ var htmls = {
 	// here we serve an index on /. it's produce from pointed swig template with provided context
 	// (each entry could be an OCManager)
 	"/":{
-		page:"swig::./www/index.html",
-		context:{
-			mainPath:"/main",
-			datas:"json::./www/json/test.json"
-		}
+		page:"swig::./www/index.html"
 	}
 };
 
