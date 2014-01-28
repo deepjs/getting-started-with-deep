@@ -12,25 +12,13 @@ require("deep-swig").createDefault(); // allow to load swigjs template files wit
 
 //_________________________________________________________ MAPS DEFINITION 
 // this is a map of restful services. it will be used below in related middleware (autobahn.restful). each entry associate a route to a store.
-var services = {
-	// services respond to routes described in expressjs route format. 
-};
+var services = require("./server_config/restful-services.js");
 
 // map for html pages produced by server
-var htmls = {
-	// same thing than for restful services : route is describe by expressjs route format.
-	// here we serve an index on /. it's produce from pointed swig template with provided context
-	// (each entry could be an OCManager)
-	"/":{
-		page:"swig::./www/index.html"
-	}
-};
+var htmls = require("./server_config/routes-map.js");
 
 // map for static files served by server
-var statics = {
-	"/":[ { path:__dirname + '/www', options:{ maxAge: 86400000, redirect:false } } ]
-};
-
+var statics = require("./server_config/statics.js");
 //_________________________________________________________ END MAPS DEFINITION 
 //______________________________________________________________________________
 
