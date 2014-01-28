@@ -131,10 +131,10 @@ Some words about these lines :
 
 The deep.jquery.addDomProtocols(); line give you access to protocols that let you manipulate the DOM with JQuery through deep. We will discuss more on deepjs protocols later as this is more advanced. But for now, just accept that this line create and give you access to these protocols :
 
-dom.appendTo::<argument> //append the html to the jquery node
-dom.prependTo::<argument> //prepend the html to the jquery node
-dom.htmlOf::<argument> //replace the html inside the jquery node
-dom.replace::<argument> //replace the jquery node with the html
+* dom.appendTo::<argument> //append the html to the jquery node
+* dom.prependTo::<argument> //prepend the html to the jquery node
+* dom.htmlOf::<argument> //replace the html inside the jquery node
+* dom.replace::<argument> //replace the jquery node with the html
 
 the argument is a jquery selector.
 
