@@ -46,7 +46,7 @@ define([
 	var view = deep.View({
 		what: "json::/json/test.json",
 		how: "swig::/templates/simple.html",
-		where: "dom.appendTo::#content"
+		where: "dom.replace::#content"
 	});
 
 	view.refresh();
