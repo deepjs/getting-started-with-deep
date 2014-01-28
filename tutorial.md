@@ -3,6 +3,16 @@
 ## 1. Setting up the app project :
 
 You'll need Git, which you can get from the Git site.
+You will also need Node.js, so please verify that you have Node.js v0.10 or better installed and that the node executable is on your PATH by running the following command in a terminal window:
+```shell
+node --version
+```
+and you need bower to install browser packages
+running this command to install bower:
+```shell
+npm install -g bower
+```
+Ok now you're ready to start.
 
 Clone the *getting-started-with-deep* repository located at Github by running the following command:
 ```shell
@@ -16,11 +26,7 @@ cd getting-started-with-deep
 ```
 The tutorial instructions, from now on, assume you are running all commands from the *getting-started-with-deep directory*.
 
-You will also need Node.js, so please verify that you have Node.js v0.10 or better installed and that the node executable is on your PATH by running the following command in a terminal window:
-```shell
-node --version
-```
-Now that you have Node.js ready you can run these 2 commands to get all the dependent packages 
+you can run these 2 commands to get all the dependent packages 
 ```shell
 npm install
 ```
