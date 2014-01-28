@@ -7,8 +7,9 @@ You will also need Node.js, so please verify that you have Node.js v0.10 or bett
 ```shell
 node --version
 ```
-and you need bower to install browser packages
-running this command to install bower:
+and you need bower to install browser packages.
+
+run this command to install bower:
 ```shell
 npm install -g bower
 ```
