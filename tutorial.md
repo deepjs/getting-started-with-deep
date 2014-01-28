@@ -114,8 +114,39 @@ define([
 For now, just ignore the require.config and the modules we load in the define (they will be necessary in further steps in this tutorial). If you want more info on how the modules are managed by require.js, got to the require.js website.
 So what our app does for now? Only outputing "app started" in your browser console. And that's it !. Ok this is not very exciting, we should start to implement a real view !
 
+Add this code to the app.js file just after the console.log() and refresh your browser :
+```javascript
+deep.jquery.addDomProtocols();
 
+var view = deep.View({
+	how: "<b>Hello my friend</b>",
+	where: "dom.htmlOf::#content"
+});
 
+view.refresh();
+```
+You see the html as changed, and you have your first view saying hello to you. Wonderful!
+
+Some words about these lines :
+
+The deep.jquery.addDomProtocols(); line give you access to protocols that let you manipulate the DOM with JQuery through deep. We will discuss more on deepjs protocols later as this is more advanced. But for now, just accept that this line create and give you access to these protocols :
+
+dom.appendTo::<argument> //append the html to the jquery node
+dom.prependTo::<argument> //prepend the html to the jquery node
+dom.htmlOf::<argument> //replace the html inside the jquery node
+dom.replace::<argument> //replace the jquery node with the html
+
+the argument is a jquery selector.
+
+Next we create the view with the deep.View() factory. A deep.View object needs minimum 2 arguments so it could print something to the browser :
+
+How : It could be a string or a function(). It is HOW you want to produce your html. For the first example it is a string containing the html that we want to print. 
+where : Where is the way and the place where you want to put the render string comming from the how argument. This is where you will use your loaded jquery protocols. The basic usage is :
+
+protocol::<argument>
+
+In this case dom.htmlOf::#content will insert the string of the "how" property in the tag with id="content".
+the view.refresh() command is the one that launch the action to put the "how" in the "where".
 
 
 

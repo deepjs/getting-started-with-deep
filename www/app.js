@@ -21,10 +21,17 @@ define([
 	"deep-routes/parser"
 ], function(require, deep) {
 
+	deep.jquery.addDomProtocols();
+
+	var view = deep.View({
+		how: "<b>This is the html of my view</b>",
+		where: "dom.replace::#content"
+	});
+
+	view.refresh();
 	// creating stores and protocoles
 	// deep.client.jquery.JSON.createDefault();
 	// deep.client.Swig.createDefault();
-	// deep.jquery.addDomProtocols();
 	// // Dummies service
 	// deep.store.Collection.create("myobjects", [{
 	// 	id: 'e1',
@@ -49,7 +56,7 @@ define([
 	// 	where: "dom.replace::#content"
 	// });
 
-	// view.refresh();
+	//view.refresh();
 	console.log("app started");
 
 });
