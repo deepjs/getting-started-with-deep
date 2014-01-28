@@ -23,6 +23,7 @@ define([
 
 	deep.jquery.addDomProtocols();
 	deep.client.Swig.createDefault();
+	deep.client.jquery.JSON.createDefault();
 
 	/*Step1*/
 	// var view = deep.View({
@@ -43,16 +44,26 @@ define([
 	// });
 
 	/*Step3*/
+	// var view = deep.View({
+	// 	what: {
+	// 		fullName: "John Rambo"
+	// 	},
+	// 	how: "swig::/templates/simple-template.html",
+	// 	where: "dom.replace::#content"
+	// });
+	/*Step4 and 5*/
 	var view = deep.View({
-		what: {
-			fullName: "John Rambo"
-		},
+		what: "json::/json/profile.json",
 		how: "swig::/templates/simple-template.html",
-		where: "dom.replace::#content"
+		where: "dom.replace::#content",
+		done: function (argument) {
+			$("#fullname-span").click(function () {
+				window.alert("You clicked on a name");
+			});
+		}
 	});
 	view.refresh();
 	// creating stores and protocoles
-	// deep.client.jquery.JSON.createDefault();
 	// // Dummies service
 	// deep.store.Collection.create("myobjects", [{
 	// 	id: 'e1',

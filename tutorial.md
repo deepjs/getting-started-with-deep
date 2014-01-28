@@ -116,7 +116,7 @@ So what our app does for now? Only outputing *"app started"* in your browser con
 
 Add this code to the *app.js* file just after the console.log() and refresh your browser :
 ```javascript
-deep.jquery.addDomProtocols();
+deep.jquery.addDomProtocols(); //need to be declared only once at init of your app
 
 var view = deep.View({
 	how: "<b>Hello my friend</b>",
@@ -138,10 +138,10 @@ The **deep.jquery.addDomProtocols();** line give you access to protocols that le
 
 the argument is a jquery selector.
 
-Next we create the view with the **deep.View()** factory. A deep.View object needs minimum 2 arguments so it could print something to the browser :
+Next we create the view with the **deep.View()** factory. A deep.View object needs minimum 2 properties so it could print something to the browser :
 
-* **how** : It could be a string or a function(). It is *HOW* you want to produce your html. For the first example it is a string containing the html that we want to print. 
-* **where** : Where is the way and the place *WHERE* you want to put the render string comming from the how argument. This is where you will use your loaded jquery protocols. The basic usage is :
+* **how** : It could be a string or a function. It is *HOW* you want to produce your html. For the first example it is a string containing the html that we want to print. 
+* **where** : Where is the way and the place *WHERE* you want to put the render string comming from the how property. This is where you will use jquery protocols. The basic usage is :
 
 protocol::argument
 
@@ -151,20 +151,20 @@ Finally, the **view.refresh();** command is the one that launch the action to pu
 
 Not impressed? Me neither! Let's do more.
 
-Let's try the function() way for the *how* of my view :
+Let's try the function way for the *how* of my view :
 
 Modify the *how* of your view like this:
 ```javascript
 var view = deep.View({
-	how: function (context) {
+	how: function (what) {
 		return "<b>Hello my friend</b>";
 	},
 	where: "dom.replace::#content"
 });
 ```
-Test it. It Still saying hello to you because your function return the same string as before. But you noticed the **context** argument in the function, and you want to use it. So you must know where does this **context** come from, that introduces the third argument of a deep.View() :
+Test it. It Still saying hello to you because your function return the same string as before. But you noticed the **what** argument in the function, and you want to use it. So you must know where does this **what** come from, that introduces the third property of a deep.View() :
 
-* **what** : this is the context object that will be injected in the *how*
+* **what** : an object or a function that will be the context injected in the *how*
 
 Modify your view to use the *what* like this :
 ```javascript
@@ -172,23 +172,22 @@ var view = deep.View({
 	what: {
 		fullName:"John Rambo"
 	},
-	how: function (context) {
-		return "<b>Hello " + context.fullName + "</b>";
+	how: function (what) {
+		return "<b>Hello " + what.fullName + "</b>";
 	},
 	where: "dom.replace::#content"
 });
 ```
 Test it. And it don't say hello to you, but to John Rambo. Don't know for you but me I'm impressed. This is not anyone!
-
-I'm hearing poeple saying "hey, what about using a real templating engine?". Ok let me show you ho to do this :
+I'm hearing people saying "hey, what about using a real templating engine?". Ok let me show you ho to do this :
 
 We will use a protocol for that, so first we have to create it. Just add this line before your view declaration : 
 ```javascript
 deep.client.Swig.createDefault();
 ```
-The **deep.client.Swig.createDefault();** line give you access to protocols the **swig::argument** protocol. The argument this protocol needs, is a path to a html swig template.
+The **deep.client.Swig.createDefault();** line give you access to the **swig::argument** protocol. The argument this protocol needs, is a path to a html swig template.
 
-Then modify your view to use it :
+Modify your view to use it :
 ```javascript
 var view = deep.View({
 	what: {
@@ -198,6 +197,52 @@ var view = deep.View({
 	where: "dom.replace::#content"
 });
 ```
+So the swig::/templates/simple-template.html protocol returns a function that receive the **what** as argument. Exactly like the preview example.
+
+A thing that could be really cool is to load data in the **what** from an external source. A json file. Ok you begin to know the principle, we will have the need of a json:: protocol, that will make the ajax call for us. Easy, just add this line before the view declaration.
+```javascript
+deep.client.jquery.JSON.createDefault();
+```
+The **deep.client.jquery.JSON.createDefault();** line give you access to the **json::argument** protocol. The argument this protocol needs, is a path to a json file.
+
+Modify your view to use it :
+```javascript
+var view = deep.View({
+	what: "json::/json/profile.json",
+	how: "swig::/templates/simple-template.html",
+	where: "dom.replace::#content"
+});
+```
+Test it and you should see a different name (the one coming from the json). This impressed me! You introduce asynchrone code and all is managed for you. The template is rendered after the asynchrone loading of the datas.
+
+Last thing you can ask for now is to have a possibility to launch your own code after the view is rendered. Like putting behaviour on your button's click event or showing/hiding or whatever...This is the fourth property of a deep.View :
+
+* **done** a function that is executed after the rendering
+
+Let's have a look : Modify your view like this :
+```javascript
+var view = deep.View({
+	what: "json::/json/profile.json",
+	how: "swig::/templates/simple-template.html",
+	where: "dom.replace::#content",
+	done: function (argument) {
+		$("#fullname-span").click(function () {
+			window.alert("You clicked on a name");
+		});
+	}
+});
+```
+Test it and click on the name, you should see an alert window saying that you have clicked on a name.
+That's it, you just put a click behaviour on a html element. So you're free now to do what you want to do with your html after the rendering. Notice the argument the done receive, it will contain some useful stuff like the contain of the *what*, the jquery node of the html rendered, the html rendered, etc. If you need more info on that, see the Deep.View doc (//TODO docs view link).
+
+Let's recap what you learned about the deep.View : 
+
+* you know how to create a view and how to use the what, how, where, done property of the view.
+* you know how to create the json::, swig:: and the dom.xxx:: protocols and how to use them for loading json data, rendering a template using the swig engine and insert the result in your page.
+* you know how to launch the render of a view using it's refresh() function.
+
+This is the right moment to make a break.
+
 
 
 
