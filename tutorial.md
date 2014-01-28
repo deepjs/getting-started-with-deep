@@ -3,6 +3,7 @@
 ## 1. Setting up the app project :
 
 You'll need Git, which you can get from the Git site.
+
 You will also need Node.js, so please verify that you have Node.js v0.10 or better installed and that the node executable is on your PATH by running the following command in a terminal window:
 ```shell
 node --version
@@ -107,11 +108,7 @@ define([
 	"deepjs/lib/view",
 	"deep-swig/index",
 	"deep-jquery/index",
-	"deep-jquery/clients/json",
-	"deepjs/lib/unit",
-	"deep-data-bind/json-binder",
-	"deep-widgets/index",
-	"deep-routes/parser"
+	"deep-jquery/clients/json"
 ], function(require, deep) {
 	
 	console.log("app started");
@@ -186,7 +183,7 @@ var view = deep.View({
 });
 ```
 Test it. And it don't say hello to you, but to John Rambo. Don't know for you but me I'm impressed. This is not anyone!
-I'm hearing people saying "hey, what about using a real templating engine?". Ok let me show you ho to do this :
+I'm hearing people saying "hey, what about using a real templating engine?". Ok let me show you how to do this :
 
 We will use a protocol for that, so first we have to create it. Just add this line before your view declaration : 
 ```javascript
@@ -248,7 +245,44 @@ Let's recap what you learned about the deep.View :
 * you know how to create the json::, swig:: and the dom.xxx:: protocols and how to use them for loading json data, rendering a template using the swig engine and insert the result in your page.
 * you know how to launch the render of a view using it's refresh() function.
 
-This is the right moment to make a break.
+The final app.js file must look like this :
+```javascript
+require.config({
+	baseUrl: "./libs",
+	catchError: true
+});
+
+define([
+	"require",
+	"deepjs/deep",
+	"deepjs/lib/view",
+	"deep-swig/index",
+	"deep-jquery/index",
+	"deep-jquery/clients/json"
+], function(require, deep) {
+
+	console.log("app started");
+
+	deep.jquery.addDomProtocols(); //need to be declared only once at init of your app
+	deep.client.Swig.createDefault(); //need to be declared only once at init of your app
+	deep.client.jquery.JSON.createDefault(); //need to be declared only once at init of your app
+
+	var view = deep.View({
+		what: "json::/json/profile.json",
+		how: "swig::/templates/simple-template.html",
+		where: "dom.replace::#content",
+		done: function (argument) {
+			$("#fullname-span").click(function () {
+				window.alert("You clicked on a name");
+			});
+		}
+	});
+	view.refresh();
+
+});
+```
+
+This is the right moment to make a break. Then [jump to the second part of the tutorial](./tutorial2.md).
 
 
 

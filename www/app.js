@@ -14,11 +14,7 @@ define([
 	"deepjs/lib/view",
 	"deep-swig/index",
 	"deep-jquery/index",
-	"deep-jquery/clients/json",
-	"deepjs/lib/unit",
-	"deep-data-bind/json-binder",
-	"deep-widgets/index",
-	"deep-routes/parser"
+	"deep-jquery/clients/json"
 ], function(require, deep) {
 
 	deep.jquery.addDomProtocols(); //need to be declared only once at init of your app
