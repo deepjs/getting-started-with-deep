@@ -69,8 +69,7 @@ www/index.html:
 	<link rel="stylesheet" type="text/css" href="./libs/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-	<div>Nothing here yet!</div>
-	<div id="content"></div>
+	<div id="content">Nothing here yet!</div>
   	<script src="./libs/jquery/jquery.min.js"></script>
   	<script src="./libs/swig.min.js"></script>
   	<script src="./libs/jStorage/jstorage.min.js"></script>
