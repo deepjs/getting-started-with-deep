@@ -15,7 +15,7 @@ require("deep-swig").createDefault(); // allow to load swigjs template files wit
 var services = require("./server_config/restful-services.js");
 
 // map for html pages produced by server
-var htmls = require("./server_config/routes-map.js");
+var htmls = require("./server_config/html-routes.js");
 
 // map for static files served by server
 var statics = require("./server_config/statics.js");

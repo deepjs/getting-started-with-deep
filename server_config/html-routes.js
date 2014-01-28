@@ -4,7 +4,7 @@ if(typeof define !== 'function'){
 
 define(["require", "deepjs/deep"], function(require, deep){
 
-	var routesMap = {
+	var HTMLroutes = {
 		"/":{
 			page:"swig::./www/index.html",
 			context:{
@@ -12,5 +12,5 @@ define(["require", "deepjs/deep"], function(require, deep){
 		}
 	};
 
-	return routesMap;
+	return HTMLroutes;
 });

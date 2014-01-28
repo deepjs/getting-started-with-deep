@@ -34,9 +34,9 @@ The last thing to do is to make sure your computer has a web browser and a good 
 
 You are now ready to build the deepjs example application. In this step, you will become familiar with the most important source code files, learn how to start the nodejs server, and run the application in the browser.
 
-## Running a deepjs application
+## 2. Running a deepjs application
 
-### 2. Launch the nodejs server
+### Launch the nodejs server
 
 run the following command in a terminal window:
 ```shell
