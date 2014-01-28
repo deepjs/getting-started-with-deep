@@ -21,9 +21,9 @@ define([
 	"deep-routes/parser"
 ], function(require, deep) {
 
-	deep.jquery.addDomProtocols();
-	deep.client.Swig.createDefault();
-	deep.client.jquery.JSON.createDefault();
+	deep.jquery.addDomProtocols(); //need to be declared only once at init of your app
+	deep.client.Swig.createDefault(); //need to be declared only once at init of your app
+	deep.client.jquery.JSON.createDefault(); //need to be declared only once at init of your app
 
 	/*Step1*/
 	// var view = deep.View({

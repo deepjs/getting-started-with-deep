@@ -213,11 +213,11 @@ var view = deep.View({
 	where: "dom.replace::#content"
 });
 ```
-Test it and you should see a different name (the one coming from the json). This impressed me! You introduce asynchrone code and all is managed for you. The template is rendered after the asynchrone loading of the datas.
+Test it and you should see a different name (the one coming from the json). This impressed me! **You introduce asynchronous code and all is managed for you**. The template is rendered after the asynchrone loading of the datas.
 
 Last thing you can ask for now is to have a possibility to launch your own code after the view is rendered. Like putting behaviour on your button's click event or showing/hiding or whatever...This is the fourth property of a deep.View :
 
-* **done** a function that is executed after the rendering
+* **done** : a function that is executed after the rendering
 
 Let's have a look : Modify your view like this :
 ```javascript
@@ -237,7 +237,7 @@ That's it, you just put a click behaviour on a html element. So you're free now 
 
 Let's recap what you learned about the deep.View : 
 
-* you know how to create a view and how to use the what, how, where, done property of the view.
+* you know how to create a view with deep.View() and how to use the what, how, where, done property of the view.
 * you know how to create the json::, swig:: and the dom.xxx:: protocols and how to use them for loading json data, rendering a template using the swig engine and insert the result in your page.
 * you know how to launch the render of a view using it's refresh() function.
 
