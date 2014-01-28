@@ -1,8 +1,0 @@
-{% if firefox %} 
-<object data="/files{{ localPath }}" type="application/x-mplayer2" width="250" height="30"><param name="filename" value="/files{{ localPath }}"><param name="AutoStart" value="0"> </object>
-{% else %}
-<audio controls>
-  	<source src="/files{{ localPath }}" type="audio/mpeg">
-	Your browser does not support the audio element.
-</audio>
-{% endif %}

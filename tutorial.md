@@ -147,7 +147,62 @@ protocol::argument
 
 In this case **dom.htmlOf::#content** will insert the string of the *"how"* property in the tag with id="content".
 
-the **view.refresh();** command is the one that launch the action to put the *"how"* in the *"where"*.
+Finally, the **view.refresh();** command is the one that launch the action to put the *"how"* in the *"where"*. And so that make the magic of showing a view in your app. Pheeew.
+
+Not impressed? Me neither! Let's do more.
+
+Let's try the function() way for the *how* of my view :
+
+Modify the *how* of your view like this:
+```javascript
+var view = deep.View({
+	how: function (context) {
+		return "<b>Hello my friend</b>";
+	},
+	where: "dom.replace::#content"
+});
+```
+Test it. It Still saying hello to you because your function return the same string as before. But you noticed the **context** argument in the function, and you want to use it. So you must know where does this **context** come from, that introduces the third argument of a deep.View() :
+
+* **what** : this is the context object that will be injected in the *how*
+
+Modify your view to use the *what* like this :
+```javascript
+var view = deep.View({
+	what: {
+		fullName:"John Rambo"
+	},
+	how: function (context) {
+		return "<b>Hello " + context.fullName + "</b>";
+	},
+	where: "dom.replace::#content"
+});
+```
+Test it. And it don't say hello to you, but to John Rambo. Don't know for you but me I'm impressed. This is not anyone!
+
+I'm hearing poeple saying "hey, what about using a real templating engine?". Ok let me show you ho to do this :
+
+We will use a protocol for that, so first we have to create it. Just add this line before your view declaration : 
+```javascript
+deep.client.Swig.createDefault();
+```
+The **deep.client.Swig.createDefault();** line give you access to protocols the **swig::argument** protocol. The argument this protocol needs, is a path to a html swig template.
+
+Then modify your view to use it :
+```javascript
+var view = deep.View({
+	what: {
+		fullName:"John Rambo"
+	},
+	how: "swig::/templates/simple-template.html",
+	where: "dom.replace::#content"
+});
+```
+
+
+
+
+
 
 
 

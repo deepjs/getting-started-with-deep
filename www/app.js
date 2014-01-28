@@ -22,16 +22,37 @@ define([
 ], function(require, deep) {
 
 	deep.jquery.addDomProtocols();
+	deep.client.Swig.createDefault();
 
+	/*Step1*/
+	// var view = deep.View({
+	// 	how: "<b>This is the html of my view</b>",
+	// 	where: "dom.replace::#content"
+	// });
+
+	// /*Step2*/
+	// var view = deep.View({
+	// 	what: {
+	// 		name:"John Rambo"
+	// 	},
+	// 	how: function(context) {
+	// 		console.log("How", context, this);
+	// 		return "<b>Hello " + context.name + "</b>";
+	// 	},
+	// 	where: "dom.replace::#content"
+	// });
+
+	/*Step3*/
 	var view = deep.View({
-		how: "<b>This is the html of my view</b>",
+		what: {
+			fullName: "John Rambo"
+		},
+		how: "swig::/templates/simple-template.html",
 		where: "dom.replace::#content"
 	});
-
 	view.refresh();
 	// creating stores and protocoles
 	// deep.client.jquery.JSON.createDefault();
-	// deep.client.Swig.createDefault();
 	// // Dummies service
 	// deep.store.Collection.create("myobjects", [{
 	// 	id: 'e1',
