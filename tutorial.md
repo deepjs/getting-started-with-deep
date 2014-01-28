@@ -51,7 +51,7 @@ The first line means your webserver is started and is listening to port 3000.
 The second is a repl access to node, so you can type direct command if needed (more on this later).
 You will see all the server logs in this terminal window.
 
-
+All the server configuration files (routes map, RESTful services, statics) are in the /server_config/ folder. We will go back to these later when will add stuff to the server. For now let's go to something visual. 
 
 ### Open a browser window for the app and navigate to http://localhost:3000/
 
@@ -66,7 +66,7 @@ www/index.html:
 <head>
 	<title>Getting started with deep</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="/libs/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./libs/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
 	<div>Nothing here yet!</div>
@@ -81,7 +81,7 @@ www/index.html:
 
 This line is loading require.js and launch our app.js script located in /www/app.js (remember we serve /www under / in the statics map)
 ```html
-<script data-main="/app.js" src="./libs/requirejs/require.js"></script>
+<script data-main="./app.js" src="./libs/requirejs/require.js"></script>
 ```
 
 
