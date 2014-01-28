@@ -22,34 +22,34 @@ define([
 ], function(require, deep) {
 
 	// creating stores and protocoles
-	deep.client.jquery.JSON.createDefault();
-	deep.client.Swig.createDefault();
-	deep.jquery.addDomProtocols();
-	// Dummies service
-	deep.store.Collection.create("myobjects", [{
-		id: 'e1',
-		title: "hello world"
-	}, {
-		id: 'e2',
-		title: "hello deepjs"
-	}], {
-		properties: {
-			title: {
-				type: "string",
-				description:"the title of my mp3",
-				minLength: 4,
-				required: true
-			}
-		}
-	});
+	// deep.client.jquery.JSON.createDefault();
+	// deep.client.Swig.createDefault();
+	// deep.jquery.addDomProtocols();
+	// // Dummies service
+	// deep.store.Collection.create("myobjects", [{
+	// 	id: 'e1',
+	// 	title: "hello world"
+	// }, {
+	// 	id: 'e2',
+	// 	title: "hello deepjs"
+	// }], {
+	// 	properties: {
+	// 		title: {
+	// 			type: "string",
+	// 			description:"the title of my mp3",
+	// 			minLength: 4,
+	// 			required: true
+	// 		}
+	// 	}
+	// });
 
-	var view = deep.View({
-		what: "json::/json/test.json",
-		how: "swig::/templates/simple.html",
-		where: "dom.replace::#content"
-	});
+	// var view = deep.View({
+	// 	what: "json::/json/test.json",
+	// 	how: "swig::/templates/simple.html",
+	// 	where: "dom.replace::#content"
+	// });
 
-	view.refresh();
+	// view.refresh();
 	console.log("app started");
 
 });

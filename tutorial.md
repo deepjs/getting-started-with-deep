@@ -1,6 +1,6 @@
 #Getting started with deep
 
-##Setting up the app project :
+## 1. Setting up the app project :
 
 You'll need Git, which you can get from the Git site.
 
@@ -36,7 +36,7 @@ You are now ready to build the deepjs example application. In this step, you wil
 
 ## Running a deepjs application
 
-### Launch the nodejs server
+### 2. Launch the nodejs server
 
 run the following command in a terminal window:
 ```shell
@@ -82,6 +82,37 @@ This line is loading require.js and launch our app.js script located in /www/app
 ```html
 <script data-main="./app.js" src="./libs/requirejs/require.js"></script>
 ```
+
+### 3. Experiments to learn
+
+So now that you know how to install and start the server, let's go for implementing some cool things in our application.
+
+First let's have a look to our main app.js file :
+
+```javascript
+require.config({
+	baseUrl: "./libs",
+	catchError: true
+});
+define([
+	"require",
+	"deepjs/deep",
+	"deepjs/lib/view",
+	"deep-swig/index",
+	"deep-jquery/index",
+	"deep-jquery/clients/json",
+	"deepjs/lib/unit",
+	"deep-data-bind/json-binder",
+	"deep-widgets/index",
+	"deep-routes/parser"
+], function(require, deep) {
+	
+	console.log("app started");
+
+});
+```
+For now, just ignore the require.config and the modules we load in the define (they will be necessary in further steps in this tutorial). If you want more info on how the modules are managed by require.js, got to the require.js website.
+So what our app does for now? Only outputing "app started" in your browser console. And that's it !. Ok this is not very exciting, we should start to implement a real view !
 
 
 
