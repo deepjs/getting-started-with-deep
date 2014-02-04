@@ -21,44 +21,46 @@ define([
 	deep.client.Swig.createDefault(); //need to be declared only once at init of your app
 	deep.client.jquery.JSON.createDefault(); //need to be declared only once at init of your app
 
+	console.log("app started");
+
 	/*Step1*/
 	// var view = deep.View({
 	// 	how: "<b>This is the html of my view</b>",
 	// 	where: "dom.replace::#content"
 	// });
 
-	// /*Step2*/
-	// var view = deep.View({
-	// 	what: {
-	// 		name:"John Rambo"
-	// 	},
-	// 	how: function(context) {
-	// 		console.log("How", context, this);
-	// 		return "<b>Hello " + context.name + "</b>";
-	// 	},
-	// 	where: "dom.replace::#content"
-	// });
+	// // /*Step2*/
+	// // var view = deep.View({
+	// // 	what: {
+	// // 		name:"John Rambo"
+	// // 	},
+	// // 	how: function(context) {
+	// // 		console.log("How", context, this);
+	// // 		return "<b>Hello " + context.name + "</b>";
+	// // 	},
+	// // 	where: "dom.replace::#content"
+	// // });
 
-	/*Step3*/
-	// var view = deep.View({
-	// 	what: {
-	// 		fullName: "John Rambo"
-	// 	},
-	// 	how: "swig::/templates/simple-template.html",
-	// 	where: "dom.replace::#content"
-	// });
-	/*Step4 and 5*/
-	var view = deep.View({
-		what: "json::/json/profile.json",
-		how: "swig::/templates/simple-template.html",
-		where: "dom.replace::#content",
-		done: function (argument) {
-			$("#fullname-span").click(function () {
-				window.alert("You clicked on a name");
-			});
-		}
-	});
-	view.refresh();
+	// /*Step3*/
+	// // var view = deep.View({
+	// // 	what: {
+	// // 		fullName: "John Rambo"
+	// // 	},
+	// // 	how: "swig::/templates/simple-template.html",
+	// // 	where: "dom.replace::#content"
+	// // });
+	// /*Step4 and 5*/
+	// // var view = deep.View({
+	// // 	what: "json::/json/profile.json",
+	// // 	how: "swig::/templates/simple-template.html",
+	// // 	where: "dom.replace::#content",
+	// // 	done: function (argument) {
+	// // 		$("#fullname-span").click(function () {
+	// // 			window.alert("You clicked on a name");
+	// // 		});
+	// // 	}
+	// // });
+	// view.refresh();
 	// creating stores and protocoles
 	// // Dummies service
 	// deep.store.Collection.create("myobjects", [{
@@ -85,6 +87,5 @@ define([
 	// });
 
 	//view.refresh();
-	console.log("app started");
 
 });
